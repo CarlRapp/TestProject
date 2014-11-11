@@ -17,6 +17,7 @@ if (UNIX)
         # Link libraries
         file(GLOB LINUX_STATIC_LIBRARIES
              ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/x86/*.a)
+	set(LINUX_STATIC_LIBRARIES -Wl)
         target_link_libraries(test
                               ${LINUX_STATIC_LIBRARIES}
 			      dl
