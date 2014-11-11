@@ -2,30 +2,21 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 # Project name
-project("Test")
+project("sdl2-test")
 
 # Include directory
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/External/include")
- 
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/ext/include")
+
 # Create executable
 file(GLOB SRC_FILES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
-add_executable(test ${SRC_FILES})
-
-#set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -Wl,-rpath,-Bstatic")
+add_executable(sdl2-test ${SRC_FILES})
 
 if (UNIX)
-        # Link libraries
-        file(GLOB LINUX_SHARED_LIBRARIES
-             ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/x86/libSDL2.so)
-        target_link_libraries(test
-                              ${LINUX_SHARED_LIBRARIES})
-elseif (WIN32)
 	# Link libraries
-        file(GLOB WINDOWS_SHARED_LIBRARIES
-             ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/x86/*.lib)
-        target_link_libraries(test
-                              ${WINDOWS_SHARED_LIBRARIES}
-							  OpenGL32)
+	file(GLOB LINUX_SHARED_LIBRARIES
+	     ${CMAKE_CURRENT_SOURCE_DIR}/ext/lib/*.so)
+	target_link_libraries(sdl2-test
+			      ${LINUX_SHARED_LIBRARIES})
 endif()
