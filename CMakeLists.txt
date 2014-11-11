@@ -13,7 +13,7 @@ file(GLOB SRC_FILES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 add_executable(test ${SRC_FILES})
 
-set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -Wl")
+set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -Wl,-rpath,-Bstatic")
 
 if (UNIX)
         # Link libraries
@@ -21,8 +21,15 @@ if (UNIX)
              ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/x86/*.a)
         target_link_libraries(test
                               ${LINUX_STATIC_LIBRARIES}
-			      dl
-			      X11)
+			      Xxf86vm
+			      Xv
+			      Xi
+			      png
+			      z
+			      stdc++
+			      X11
+		 	      Xext
+			      dl)
 elseif (WIN32)
 	# Link libraries
         file(GLOB WINDOWS_SHARED_LIBRARIES
