@@ -19,8 +19,8 @@ if (UNIX)
 	set(CMAKE_CXX_FLAGS_DEBUG 	"${CMAKE_CXX_FLAGS_DEBUG} -g -Wno-ignored-attributes -Wno-deprecated -Wno-shift-op-parentheses -fexceptions")
 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O4")
 	set(CMAKE_LINKER 			"/usr/bin/llvm-ld")
-	set(CMAKE_CXX_COMPILER 		"/usr/bin/clang++")
-	set(CMAKE_C_COMPILER 		"/usr/bin/clang")
+	set(CMAKE_CXX_COMPILER 		"/usr/bin/g++")
+	set(CMAKE_C_COMPILER 		"/usr/bin/gcc")
 
 
 	# Link libraries
