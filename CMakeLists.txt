@@ -13,7 +13,8 @@ file(GLOB SRC_FILES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 add_executable(test ${SRC_FILES})
 
-CMAKE_STATIC_LINKER_FLAGS="-Wl,--whole-archive -lgcc -lgcc_s -Wl,--no-whole-archive"
+set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -Wl")
+
 if (UNIX)
         # Link libraries
         file(GLOB LINUX_STATIC_LIBRARIES
