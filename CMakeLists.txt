@@ -11,7 +11,7 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/External/include")
 file(GLOB SRC_FILES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
-
+add_executable(sdl2-test ${SRC_FILES})
 
 if (UNIX)
 	# Link libraries
@@ -23,4 +23,3 @@ endif()
 
 
 
-add_executable(sdl2-test ${SRC_FILES})
