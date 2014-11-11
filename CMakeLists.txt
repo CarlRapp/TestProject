@@ -7,7 +7,7 @@ project("LekProjekt")
 
 
 # Create executable
-file(GLOB SRC_FILES
+file(GLOB_RECURSE SRC_FILES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 	 
