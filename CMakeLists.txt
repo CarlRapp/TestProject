@@ -24,7 +24,6 @@ if (UNIX)
 			      Xxf86vm
 			      Xv
 			      Xi
-			      png
 			      z
 			      stdc++
 			      X11
