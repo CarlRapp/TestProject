@@ -19,6 +19,7 @@ if (UNIX)
              ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/x86/*.a)
         target_link_libraries(test
                               ${LINUX_STATIC_LIBRARIES}
+			      dl
 			      X11)
 elseif (WIN32)
 	# Link libraries
