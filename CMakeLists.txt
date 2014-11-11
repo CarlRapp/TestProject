@@ -18,7 +18,7 @@ add_executable(LekProjekt ${SRC_FILES})
 if (UNIX)
 	# Link libraries
 	file(GLOB LINUX_SHARED_LIBRARIES
-	     ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/x86/*.so)
+	     ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/*.so)
 	target_link_libraries(LekProjekt
 			      ${LINUX_SHARED_LIBRARIES})
 endif()
