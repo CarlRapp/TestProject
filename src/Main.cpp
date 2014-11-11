@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <SDL/SDL.h>
 using namespace std;
 
 #define N_WALK 6
@@ -48,7 +49,7 @@ void GenerateCommands(vector<WalkCommand> &WALKS)
 int main(char** argv, int argc)
 {
 	srand(0);
-
+	SDL_Init(SDL_INIT_EVERYTHING);
 
 	vector<WalkCommand> WALKS = vector<WalkCommand>();
 	GenerateCommands(WALKS);
