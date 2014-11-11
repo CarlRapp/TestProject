@@ -56,10 +56,6 @@ struct SDL_SysWMinfo;
 #include <windows.h>
 #endif
 
-#if defined(SDL_VIDEO_DRIVER_WINRT)
-#include <Inspectable.h>
-#endif
-
 /* This is the structure for custom window manager events */
 #if defined(SDL_VIDEO_DRIVER_X11)
 #if defined(__APPLE__) && defined(__MACH__)
@@ -94,14 +90,8 @@ typedef struct _NSWindow NSWindow;
 #include <UIKit/UIKit.h>
 #else
 typedef struct _UIWindow UIWindow;
-typedef struct _UIViewController UIViewController;
 #endif
 #endif
-
-#if defined(SDL_VIDEO_DRIVER_MIR)
-#include <mir_toolkit/mir_client_library.h>
-#endif
-
 
 /**
  *  These are the various supported windowing subsystems
@@ -116,7 +106,6 @@ typedef enum
     SDL_SYSWM_UIKIT,
     SDL_SYSWM_WAYLAND,
     SDL_SYSWM_MIR,
-    SDL_SYSWM_WINRT,
 } SDL_SYSWM_TYPE;
 
 /**
@@ -181,12 +170,6 @@ struct SDL_SysWMinfo
             HWND window;                /**< The window handle */
         } win;
 #endif
-#if defined(SDL_VIDEO_DRIVER_WINRT)
-        struct
-        {
-            IInspectable * window;      /**< The WinRT CoreWindow */
-        } winrt;
-#endif
 #if defined(SDL_VIDEO_DRIVER_X11)
         struct
         {
@@ -225,8 +208,8 @@ struct SDL_SysWMinfo
 #if defined(SDL_VIDEO_DRIVER_MIR)
         struct
         {
-            MirConnection *connection;  /**< Mir display server connection */
-            MirSurface *surface;  /**< Mir surface */
+            struct MirConnection *connection;  /**< Mir display server connection */
+            struct MirSurface *surface;  /**< Mir surface */
         } mir;
 #endif
 
