@@ -16,7 +16,7 @@ add_executable(sdl2-test ${SRC_FILES})
 if (UNIX)
 	# Link libraries
 	file(GLOB LINUX_SHARED_LIBRARIES
-	     ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/*.so)
+	     ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/x86/*.so)
 	target_link_libraries(sdl2-test
 			      ${LINUX_SHARED_LIBRARIES})
 endif()
