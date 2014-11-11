@@ -16,6 +16,13 @@ add_compile_options(-std=c++11)
 add_executable(LekProjekt ${SRC_FILES})
 
 if (UNIX)
+	set(CMAKE_CXX_FLAGS_DEBUG 	"${CMAKE_CXX_FLAGS_DEBUG} -g -Wno-ignored-attributes -Wno-deprecated -Wno-shift-op-parentheses -fexceptions")
+	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O4")
+	set(CMAKE_LINKER 			"/usr/bin/llvm-ld")
+	set(CMAKE_CXX_COMPILER 		"/usr/bin/clang++")
+	set(CMAKE_C_COMPILER 		"/usr/bin/clang")
+
+
 	# Link libraries
 	file(GLOB LINUX_SHARED_LIBRARIES
 	     ${CMAKE_CURRENT_SOURCE_DIR}/External/lib/*.so)
