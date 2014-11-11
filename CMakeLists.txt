@@ -12,7 +12,7 @@ file(GLOB SRC_FILES
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
      ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 	 
-add_compile_options(-stdlib=libc++)	
+add_compile_options(-std=c++11)
 add_executable(sdl2-test ${SRC_FILES})
 
 if (UNIX)
